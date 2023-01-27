@@ -34,18 +34,8 @@
   }
   
   .boton {
-    width: 60px;
-    height: 22px;
-    margin-top: 5px;
     background: transparent;
-    border-radius: 10px;
-    font-size: 12px;
-    cursor: pointer;
-    padding: 5px;
     border: none;
-    background-color: azure;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
   }
   
