@@ -1,4 +1,4 @@
-import { MdDeleteForever } from "react-icons/Md";
+import { RiDeleteBack2Fill } from "react-icons/ri";
 import types from "./types";
 import styles from "./styles/Tareas.module.css";
 
@@ -27,7 +27,7 @@ const Tareas = ({ tarea, dispatch }) => {
           dispatch({ type: types.borrar, payload: tarea.id });
         }}
       >
-        <MdDeleteForever size="30px" />
+        <RiDeleteBack2Fill size="30px" />
       </div>
     </div>
   );

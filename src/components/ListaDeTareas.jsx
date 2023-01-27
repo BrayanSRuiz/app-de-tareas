@@ -1,5 +1,6 @@
 import React, { useReducer, useRef, useState } from "react";
 import styles from "./styles/ListaDeTareas.module.css";
+import { RiAddBoxFill } from "react-icons/ri";
 import miReducer from "./miReducer";
 import types from "./types";
 import Tareas from "./Tareas";
@@ -54,7 +55,7 @@ const ListaDeTareas = () => {
             });
           }}
         >
-          Añadir
+          <RiAddBoxFill size={30} />
         </button>
       </div>
       {tareas.map((tarea) => (
