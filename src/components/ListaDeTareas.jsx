@@ -1,6 +1,5 @@
 import React, { useReducer, useRef, useState } from "react";
 import styles from "./styles/ListaDeTareas.module.css";
-import { MdAddBox } from "react-icons/Md";
 import miReducer from "./miReducer";
 import types from "./types";
 import Tareas from "./Tareas";
@@ -55,7 +54,7 @@ const ListaDeTareas = () => {
             });
           }}
         >
-          <MdAddBox size={30} />
+          Añadir
         </button>
       </div>
       {tareas.map((tarea) => (
