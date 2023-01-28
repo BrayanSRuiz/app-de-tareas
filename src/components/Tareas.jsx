@@ -18,16 +18,11 @@ const Tareas = ({ tarea, dispatch }) => {
         <h1 className={styles.tareaTitle}>Tarea</h1>
         <p className={styles.tareaNombre}>{nombreCompleto}</p>
       </div>
-      <div className={styles.tareaPrioridad}>
-        Prioridad: {prioridadCompleto}
-      </div>
-      <div
-        className={styles.tareaBoton}
-        onClick={() => {
+      <div className={styles.tareaPrioridad}onClick={() => {
           dispatch({ type: types.borrar, payload: tarea.id });
-        }}
-      >
-        <RiDeleteBack2Fill size="30px" />
+        }}>
+        Prioridad: {prioridadCompleto}
+        <RiDeleteBack2Fill size="30px" className={styles.tareaBoton}/>
       </div>
     </div>
   );

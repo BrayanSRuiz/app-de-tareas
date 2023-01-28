@@ -9,6 +9,8 @@
   border-radius: 10px;
 }
 .tareaTitleContainer {
+  width: auto;
+  height: 120px;
   background-color: rgb(4, 96, 99);
   width: 100%;
   border-radius: 10px 10px 0 0;
@@ -19,14 +21,12 @@
   font-size: 1.4em;
   font-weight: bold;
 }
-
-.tareaNombre {
-  font-size: 1.2em;
-}
-
 .tareaPrioridad {
-  margin: 13px 0;
+  margin: 10px 0;
   font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tareaBoton {
