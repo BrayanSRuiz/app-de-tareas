@@ -1,8 +1,8 @@
 .añadirContainer {
-  margin-left: 25px;
+  margin-left: 15px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 200px);
-  gap: 5px;
+  gap: 10px;
   text-align: center;
 }
 
