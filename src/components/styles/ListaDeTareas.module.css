@@ -1,46 +1,45 @@
 .añadirContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 220px);
-    gap: 5px;
-    text-align: center;
-    justify-content: center;
-  }
-  
-  .añadir {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px;
-    height: 210px;
-    background: rgb(8,128,130);
-    margin-top: 20px;
-    border-radius: 10px;
-  }
+  margin-left: 3px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 5px;
+  text-align: center;
+}
 
-  .añadirTittle {
-    margin-top: 27px;
-    font-size: 1.4em;
-  }
-  
-  .añadirLabel{
-    font-size: 1.2em;
-  }
-  
-  input {
-    border-radius: 2px;
-    background-color: azure;
-  }
-  
-  select {
-    background-color: azure;
-    border-radius: 10px;
-    list-style: none;
-    margin: 5px;
-  }
-  
-  .boton {
-    cursor: pointer;
-    border: none;
-    background: transparent;
-  }
-  
+.añadir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  height: 210px;
+  background: rgb(8, 128, 130);
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.añadirTittle {
+  margin-top: 27px;
+  font-size: 1.4em;
+}
+
+.añadirLabel {
+  font-size: 1.2em;
+}
+
+input {
+  border-radius: 2px;
+  background-color: azure;
+}
+
+select {
+  background-color: azure;
+  border-radius: 10px;
+  list-style: none;
+  margin: 5px;
+}
+
+.boton {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
