@@ -16,7 +16,7 @@
 
 .tareaTitle {
   margin: 27px 0 0;
-  font-size: 1.7em;
+  font-size: 1.4em;
   font-weight: bold;
 }
 
@@ -25,12 +25,13 @@
 }
 
 .tareaPrioridad {
-  margin: 20px 0;
+  margin: 13px 0;
   font-size: 1.2em;
 }
 
 .tareaBoton {
   cursor: pointer;
+  margin-top: 0;
 }
 
 

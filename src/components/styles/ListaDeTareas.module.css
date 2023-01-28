@@ -4,7 +4,6 @@
     gap: 5px;
     text-align: center;
     justify-content: center;
-    position: absolute;
   }
   
   .añadir {
@@ -16,6 +15,11 @@
     background: rgb(8,128,130);
     margin-top: 20px;
     border-radius: 10px;
+  }
+
+  .añadirTittle {
+    margin-top: 27px;
+    font-size: 1.4em;
   }
   
   .añadirLabel{
@@ -38,6 +42,5 @@
     cursor: pointer;
     border: none;
     background: transparent;
-    position: relative;
   }
   

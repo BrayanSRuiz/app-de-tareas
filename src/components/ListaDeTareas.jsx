@@ -15,7 +15,7 @@ const ListaDeTareas = () => {
   return (
     <div className={styles.añadirContainer}>
       <div className={styles.añadir}>
-        <h1>Agregar tarea</h1>
+        <h1 className={styles.añadirTittle}>Agregar tarea</h1>
         <label htmlFor="tarea" className={styles.añadirLabel}>
           Tarea
         </label>
