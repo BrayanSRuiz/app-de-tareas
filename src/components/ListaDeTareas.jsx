@@ -45,6 +45,7 @@ const ListaDeTareas = () => {
             setMiTarea("");
             setMiPrioridad("baja");
             inputRef.current.focus();
+            (miTarea === "" ? alert("Por favor completar todos los campos") : 
             dispatch({
               type: types.añadir,
               payload: {
@@ -52,7 +53,7 @@ const ListaDeTareas = () => {
                 nombre: miTarea,
                 prioridad: miPrioridad,
               },
-            });
+            }));
           }}
         >
           <RiAddBoxFill size={30} />

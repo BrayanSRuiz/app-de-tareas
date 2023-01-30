@@ -1,13 +1,1 @@
-body {
-    margin: 0;
-  }
-  .app {
-    background: rgb(8, 128, 130);
-    background: linear-gradient(
-      0deg,
-      rgba(8, 128, 130, 1) 0%,
-      rgba(12, 2, 45, 1) 81%
-    );
-    height: 100vh;
-    width: 100vw;
-  }
+
