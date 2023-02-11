@@ -1,10 +1,13 @@
 import ListaDeTareas from "./components/ListaDeTareas";
-import styles from './App.module.css'
+import styles from "./App.module.css";
+import Provider from "./context/Provider";
 
 function App() {
   return (
     <div className={styles.app}>
-      <ListaDeTareas />
+      <Provider>
+        <ListaDeTareas />
+      </Provider>
     </div>
   );
 }

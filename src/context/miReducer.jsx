@@ -1,6 +1,10 @@
-import types from "./types";
 
-const miReducer = (state, action) => {
+export const types = {
+  añadir: "añadir",
+  borrar: "borrar",
+};
+
+ export const miReducer = (state, action) => {
   switch (action.type) {
     case types.añadir:
       return [...state, action.payload];
@@ -8,5 +12,3 @@ const miReducer = (state, action) => {
       return state.filter((dato) => dato.id !== action.payload);
   }
 };
-
-export default miReducer;

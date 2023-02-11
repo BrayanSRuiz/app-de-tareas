@@ -1,20 +1,19 @@
-import React, { useReducer, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import styles from "./styles/ListaDeTareas.module.css";
 import { RiAddBoxFill } from "react-icons/ri";
-import miReducer from "./miReducer";
-import types from "./types";
 import Tareas from "./Tareas";
-
-const valorInicial = [];
+import { Contexto } from "../context/Contexto";
 
 const ListaDeTareas = () => {
-  const [miTarea, setMiTarea] = useState("");
-  const [miPrioridad, setMiPrioridad] = useState("baja");
-  const [tareas, dispatch] = useReducer(miReducer, valorInicial);
+  const {miTarea, setMiTarea} = useContext(Contexto)
+  const {miPrioridad, setMiPrioridad} = useContext(Contexto)
+  const {añadir} = useContext(Contexto)
+  const {tareas} = useContext(Contexto)
+  
   const inputRef = useRef(null);
   return (
     <div className={styles.añadirContainer}>
-      <div className={styles.añadir}>
+      <form className={styles.añadir} onSubmit={(ev) => ev.preventDefault()}>
         <h1 className={styles.añadirTittle}>Agregar tarea</h1>
         <label htmlFor="tarea" className={styles.añadirLabel}>
           Tarea
@@ -45,22 +44,15 @@ const ListaDeTareas = () => {
             setMiTarea("");
             setMiPrioridad("baja");
             inputRef.current.focus();
-            (miTarea === "" ? alert("Por favor completar todos los campos") : 
-            dispatch({
-              type: types.añadir,
-              payload: {
-                id: Date.now(),
-                nombre: miTarea,
-                prioridad: miPrioridad,
-              },
-            }));
+            (miTarea === "" ? alert("Por favor completar todos los campos") : añadir()
+            );
           }}
         >
           <RiAddBoxFill size={30} />
         </button>
-      </div>
+      </form>
       {tareas.map((tarea) => (
-        <Tareas key={tarea.id} tarea={tarea} dispatch={dispatch} />
+        <Tareas key={tarea.id} tarea={tarea} />
       ))}
     </div>
   );

@@ -1,8 +1,10 @@
 import { RiDeleteBack2Fill } from "react-icons/ri";
-import types from "./types";
 import styles from "./styles/Tareas.module.css";
+import { useContext } from "react";
+import { Contexto } from "../context/Contexto";
 
-const Tareas = ({ tarea, dispatch }) => {
+const Tareas = ({ tarea }) => {
+  const {borrar} = useContext(Contexto)
   const nombre = tarea.nombre;
   const nombreCompleto =
     nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
@@ -18,11 +20,11 @@ const Tareas = ({ tarea, dispatch }) => {
         <h1 className={styles.tareaTitle}>Tarea</h1>
         <p className={styles.tareaNombre}>{nombreCompleto}</p>
       </div>
-      <div className={styles.tareaPrioridad}onClick={() => {
-          dispatch({ type: types.borrar, payload: tarea.id });
-        }}>
+      <div className={styles.tareaPrioridad}>
         Prioridad: {prioridadCompleto}
-        <RiDeleteBack2Fill size="30px" className={styles.tareaBoton}/>
+        <RiDeleteBack2Fill size="30px" className={styles.tareaBoton} onClick={() => {
+          borrar(tarea)
+        }}/>
       </div>
     </div>
   );
