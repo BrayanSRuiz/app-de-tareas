@@ -1,29 +1,55 @@
 import React, { useReducer, useState } from "react";
 import { Contexto } from "./Contexto";
-import { miReducer, types } from "./miReducer";
+import { miReducer, reduce, types } from "./miReducer";
 
 const valorInicial = [];
+const init = {
+  logeago: false,
+  usuario: null,
+}
 
 const Provider = ({ children }) => {
   const [miTarea, setMiTarea] = useState("");
   const [miPrioridad, setMiPrioridad] = useState("baja");
   const [tareas, dispatch] = useReducer(miReducer, valorInicial);
+  const [autentificacion, dispatch1] = useReducer(reduce,init )
   const añadir = () => {
-    dispatch({
+    const action = {
       type: types.añadir,
       payload: {
         id: Date.now(),
         nombre: miTarea,
         prioridad: miPrioridad,
       },
-    })
+    }
+    dispatch(action)
   }
 
   const borrar = (tarea) => {
-    dispatch({ type: types.borrar, payload: tarea.id });
+   const action = { 
+      type: types.borrar, 
+      payload: tarea.id 
+    }
+    dispatch(action);
   }
 
-  return <Contexto.Provider value={{tareas, añadir, borrar, miTarea, miPrioridad, setMiTarea, setMiPrioridad}}>{children}</Contexto.Provider>;
+  const logearse = (user = '') => {
+    const action = {
+      type: types.login,
+      payload: user,
+    }
+    dispatch1(action)
+  }
+
+  const deslogearse = () => {
+    const action = {
+      type: types.logout,
+      payload: null,
+    }
+    dispatch1(action)
+  }
+
+  return <Contexto.Provider value={{...autentificacion, logearse, deslogearse, tareas, añadir, borrar, miTarea, miPrioridad, setMiTarea, setMiPrioridad}}>{children}</Contexto.Provider>;
 };
 
 export default Provider;
