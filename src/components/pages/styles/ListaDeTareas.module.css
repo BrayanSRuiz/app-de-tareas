@@ -1,6 +1,27 @@
+.bienvenida{
+  display: flex;
+  align-items: center;
+}
+
+.botonOut{
+  font-size: 10px;
+  font-family: Verdana, Helvetica;
+  font-weight: bold;
+  color: white;
+  background: #638cb5;
+  border: 0px;
+  width: 80px;
+  height: 19px;
+}
+
+.botonOut:hover {
+  cursor: pointer;
+}
+
 .name {
   color: white;
 }
+
 .añadirContainer {
   margin-left: 15px;
   display: grid;
@@ -46,3 +67,5 @@ select {
   border: none;
   background: transparent;
 }
+
+
