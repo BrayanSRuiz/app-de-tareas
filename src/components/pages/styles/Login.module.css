@@ -1,18 +1,15 @@
 .login {
-  width: 100vw;
-  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  
-  position: absolute;
 }
 
 .loginTitle {
   color: white;
 }
 .formulario {
+  max-width: 285px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -20,7 +17,6 @@
   padding: 6px 8px 8px;
   margin: 4px 0px;
   width: 100vh;
-  position: relative;
 }
 
 input {
@@ -42,3 +38,4 @@ input {
 .boton:hover {
   cursor: pointer;
 }
+

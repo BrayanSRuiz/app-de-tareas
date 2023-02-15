@@ -24,7 +24,7 @@ const Register = () => {
   };
   return (
     <div className={styles.login}>
-      <h1 className={styles.loginTitle}>Register</h1>
+      <h1 className={styles.loginTitle}>Login</h1>
       {error && <Alert message={error} />}
       <form className={styles.formulario} onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
