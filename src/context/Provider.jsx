@@ -6,8 +6,6 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
-  GoogleAuthProvider,
-  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
@@ -52,11 +50,6 @@ const Provider = ({ children }) => {
 
   const logout = () => signOut(auth)
 
-  const loginWitcGoogle = () => {
-    const googleProvider = new GoogleAuthProvider()
-    signInWithPopup(auth, googleProvider)
-  }
-
   useEffect(() => {
     onAuthStateChanged(auth, currentUser => {
       setUsuario(currentUser)
@@ -78,7 +71,6 @@ const Provider = ({ children }) => {
         login,
         usuario,
         logout,
-        loginWitcGoogle,
       }}
     >
       {children}

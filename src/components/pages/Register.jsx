@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Contexto } from "../../context/Contexto";
 import Alert from "./Alert";
+import styles from './styles/Login.module.css'
 
 const Register = () => {
   const navigate = useNavigate();
@@ -22,10 +23,10 @@ const Register = () => {
     }
   };
   return (
-    <div>
+    <div className={styles.login}>
+      <h1 className={styles.loginTitle}>Register</h1>
       {error && <Alert message={error} />}
-
-      <form onSubmit={handleSubmit}>
+      <form className={styles.formulario} onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -43,7 +44,7 @@ const Register = () => {
           onChange={handleChange}
         />
 
-        <button>Register</button>
+        <button className={styles.boton}>Register</button>
       </form>
     </div>
   );
