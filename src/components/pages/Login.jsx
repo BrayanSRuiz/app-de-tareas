@@ -18,7 +18,7 @@ const Login = () => {
     setError("")
     try { 
       await login(user.email, user.password);
-      
+      navigate("/", { replace: true })
     } catch (error) {
       setError(error.message)
     }
@@ -54,7 +54,7 @@ const Login = () => {
         onChange={handleChange}
       />
 
-      <button>Login</button>
+      <button onClick={handleSubmit}>Login</button>
     </form>
     <GoogleButton onClick={handleGoogleSingIn}/>
     <button onClick={() => navigate('/register')}>Register</button>
