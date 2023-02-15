@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Contexto } from "../../context/Contexto";
+import Alert from "./Alert";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -12,39 +13,39 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("")
+    setError("");
     try {
       await signUp(user.email, user.password);
       navigate("/", { replace: true });
     } catch (error) {
-      setError(error.message)
+      setError(error.message);
     }
   };
   return (
     <div>
-      {error && <p>{error}</p>}
+      {error && <Alert message={error} />}
+
       <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        name="email"
-        placeholder="youremail@company.ltd"
-        onChange={handleChange}
-      />
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          placeholder="youremail@company.ltd"
+          onChange={handleChange}
+        />
 
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="******"
-        onChange={handleChange}
-      />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="******"
+          onChange={handleChange}
+        />
 
-      <button>Register</button>
-    </form>
+        <button>Register</button>
+      </form>
     </div>
-    
   );
 };
 

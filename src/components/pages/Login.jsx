@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Contexto } from "../../context/Contexto";
 import { GoogleButton } from 'react-google-button'
+import Alert from "./Alert";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Login = () => {
 
   return (
     <div>
-      {error && <p>{error}</p>}
+      {error && <Alert message={error} />}
       <form onSubmit={handleSubmit}>
       <label htmlFor="email">Email</label>
       <input
@@ -56,6 +57,7 @@ const Login = () => {
       <button>Login</button>
     </form>
     <GoogleButton onClick={handleGoogleSingIn}/>
+    <button onClick={() => navigate('/register')}>Register</button>
     </div>
     
   );
