@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Contexto } from "../../context/Contexto";
+import { GoogleButton } from 'react-google-button'
 
 const Login = () => {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const Login = () => {
 
       <button>Login</button>
     </form>
-    <button onClick={handleGoogleSingIn}>Login witch Google</button>
+    <GoogleButton onClick={handleGoogleSingIn}/>
     </div>
     
   );

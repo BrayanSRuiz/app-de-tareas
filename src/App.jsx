@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
 import Provider from "./context/Provider";
-import Router from "./components/routes/Routes";
+import Router from "./components/Routes/Router";
 
 function App() {
   return (
