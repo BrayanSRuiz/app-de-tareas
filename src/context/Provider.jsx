@@ -1,18 +1,29 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { Contexto } from "./Contexto";
-import { miReducer, reduce, types } from "./miReducer";
+import { miReducer, types } from "./miReducer";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth } from "../firebase/firebase";
 
 const valorInicial = [];
-const init = {
-  logeago: false,
-  usuario: null,
-}
 
 const Provider = ({ children }) => {
   const [miTarea, setMiTarea] = useState("");
   const [miPrioridad, setMiPrioridad] = useState("baja");
   const [tareas, dispatch] = useReducer(miReducer, valorInicial);
-  const [autentificacion, dispatch1] = useReducer(reduce,init )
+  const [usuario, setUsuario] = useState(null);
+
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  
   const añadir = () => {
     const action = {
       type: types.añadir,
@@ -21,35 +32,58 @@ const Provider = ({ children }) => {
         nombre: miTarea,
         prioridad: miPrioridad,
       },
-    }
-    dispatch(action)
-  }
+    };
+    dispatch(action);
+  };
 
   const borrar = (tarea) => {
-   const action = { 
-      type: types.borrar, 
-      payload: tarea.id 
-    }
+    const action = {
+      type: types.borrar,
+      payload: tarea.id,
+    };
     dispatch(action);
+  };
+
+  const signUp = (email, password) =>
+    createUserWithEmailAndPassword(auth, email, password);
+
+  const login = (email, password) =>
+    signInWithEmailAndPassword(auth, email, password);
+
+  const logout = () => signOut(auth)
+
+  const loginWitcGoogle = () => {
+    const googleProvider = new GoogleAuthProvider()
+    signInWithPopup(auth, googleProvider)
   }
 
-  const logearse = (user = '') => {
-    const action = {
-      type: types.login,
-      payload: user,
-    }
-    dispatch1(action)
-  }
-
-  const deslogearse = () => {
-    const action = {
-      type: types.logout,
-      payload: null,
-    }
-    dispatch1(action)
-  }
-
-  return <Contexto.Provider value={{...autentificacion, logearse, deslogearse, tareas, añadir, borrar, miTarea, miPrioridad, setMiTarea, setMiPrioridad}}>{children}</Contexto.Provider>;
+  useEffect(() => {
+    onAuthStateChanged(auth, currentUser => {
+      setUsuario(currentUser)
+    })
+  }, [])
+  return (
+    <Contexto.Provider
+      value={{
+        tareas,
+        añadir,
+        borrar,
+        miTarea,
+        miPrioridad,
+        setMiTarea,
+        setMiPrioridad,
+        user,
+        setUser,
+        signUp,
+        login,
+        usuario,
+        logout,
+        loginWitcGoogle,
+      }}
+    >
+      {children}
+    </Contexto.Provider>
+  );
 };
 
 export default Provider;

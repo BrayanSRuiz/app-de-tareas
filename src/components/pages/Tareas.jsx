@@ -1,7 +1,7 @@
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import styles from "./styles/Tareas.module.css";
 import { useContext } from "react";
-import { Contexto } from "../context/Contexto";
+import { Contexto } from "../../context/Contexto";
 
 const Tareas = ({ tarea }) => {
   const {borrar} = useContext(Contexto)

@@ -1,7 +1,6 @@
-import ListaDeTareas from "./components/ListaDeTareas";
 import styles from "./App.module.css";
 import Provider from "./context/Provider";
-import Router from "./routes/Router";
+import Router from "./components/routes/Routes";
 
 function App() {
   return (

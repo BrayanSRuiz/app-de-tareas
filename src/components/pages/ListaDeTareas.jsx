@@ -1,18 +1,22 @@
-import React, { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import styles from "./styles/ListaDeTareas.module.css";
 import { RiAddBoxFill } from "react-icons/ri";
 import Tareas from "./Tareas";
-import { Contexto } from "../context/Contexto";
+import { Contexto } from "../../context/Contexto";
 
 const ListaDeTareas = () => {
-  const {miTarea, setMiTarea} = useContext(Contexto)
-  const {miPrioridad, setMiPrioridad} = useContext(Contexto)
-  const {añadir} = useContext(Contexto)
-  const {tareas} = useContext(Contexto)
+  const {añadir, tareas, miTarea, setMiTarea, miPrioridad, setMiPrioridad, usuario, logout} = useContext(Contexto)
+
+  const handleLogout = async () => {
+    await logout()
+  }
   
   const inputRef = useRef(null);
   return (
-    <div className={styles.añadirContainer}>
+    <div>
+      <h1 className={styles.name}>Welcome {usuario.email} </h1>
+      <button onClick={handleLogout}>Sign Out</button>
+      <div className={styles.añadirContainer}>
       <form className={styles.añadir} onSubmit={(ev) => ev.preventDefault()}>
         <h1 className={styles.añadirTittle}>Agregar tarea</h1>
         <label htmlFor="tarea" className={styles.añadirLabel}>
@@ -55,6 +59,8 @@ const ListaDeTareas = () => {
         <Tareas key={tarea.id} tarea={tarea} />
       ))}
     </div>
+    </div>
+    
   );
 };
 
