@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { Contexto } from "../../context/Contexto";
 
 const Tareas = ({ tarea }) => {
-  const {borrar} = useContext(Contexto)
+  const { borrar } = useContext(Contexto);
   const nombre = tarea.nombre;
   const nombreCompleto =
     nombre.substring(0, 1).toUpperCase() + nombre.substring(1).toLowerCase();
@@ -21,10 +21,29 @@ const Tareas = ({ tarea }) => {
         <p className={styles.tareaNombre}>{nombreCompleto}</p>
       </div>
       <div className={styles.tareaPrioridad}>
-        Prioridad: {prioridadCompleto}
-        <RiDeleteBack2Fill size="30px" className={styles.tareaBoton} onClick={() => {
-          borrar(tarea)
-        }}/>
+        <div>
+          Prioridad:{" "}
+          <span
+            className={`${
+              prioridadCompleto === "Baja"
+                ? styles.tareaPrioridadBaja
+                : prioridadCompleto === "Media"
+                ? styles.tareaPrioridadMedia
+                : prioridadCompleto === "Alta"
+                ? styles.tareaPrioridadAlta
+                : null
+            }`}
+          >
+            {prioridadCompleto}
+          </span>
+        </div>
+        <RiDeleteBack2Fill
+          size="30px"
+          className={styles.tareaBoton}
+          onClick={() => {
+            borrar(tarea);
+          }}
+        />
       </div>
     </div>
   );

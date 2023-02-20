@@ -30,6 +30,18 @@
   align-items: center;
 }
 
+.tareaPrioridadBaja {
+  color: black;
+}
+
+.tareaPrioridadMedia {
+  color: orange;
+}
+
+.tareaPrioridadAlta {
+  color: red;
+}
+
 .tareaBoton {
   cursor: pointer;
   margin-top: 0;
